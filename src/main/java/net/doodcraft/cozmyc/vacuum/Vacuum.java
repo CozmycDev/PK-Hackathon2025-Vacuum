@@ -443,12 +443,14 @@ public class Vacuum extends AirAbility implements AddonAbility {
                 "COCOA", "NETHER_WART", "BAMBOO"
         ));
 
+        ConfigManager.defaultConfig.save();
+
         FileConfiguration langConfig = ConfigManager.languageConfig.get();
 
         langConfig.addDefault("Abilities.Vacuum.Description", "Vacuum allows Airbenders to create powerful currents of Air that can pull along entities caught in their path. They can even be used to harvest crops or extinguish flames.");
         langConfig.addDefault("Abilities.Vacuum.Instructions", "To use Vacuum, quickly swipe (left-click) to spawn one or multiple wind charges. Guide the wind charges around with your cursor. End the ability immediately by sneaking (shift.)");
 
-        ConfigManager.defaultConfig.save();
+        ConfigManager.languageConfig.save();
 
         ProjectKorra.plugin.getServer().getPluginManager().registerEvents(new VacuumListener(), ProjectKorra.plugin);
 
@@ -468,7 +470,7 @@ public class Vacuum extends AirAbility implements AddonAbility {
 
     @Override
     public String getVersion() {
-        return "1.0.0";
+        return "1.0.1";
     }
 
     @Override
