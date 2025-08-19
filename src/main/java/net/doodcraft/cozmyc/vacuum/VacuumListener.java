@@ -4,9 +4,11 @@ import com.projectkorra.projectkorra.BendingPlayer;
 import com.projectkorra.projectkorra.ability.CoreAbility;
 
 import org.bukkit.entity.Player;
+import org.bukkit.entity.WindCharge;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
@@ -66,5 +68,14 @@ public class VacuumListener implements Listener {
         }
 
         vacuum.sneak();
+    }
+
+    @EventHandler
+    public void onWindChargeCollide(ProjectileHitEvent event) {
+        if (!(event.getEntity() instanceof WindCharge windCharge)) return;
+
+        if (Vacuum.ownsWindCharge(windCharge)) {
+            event.setCancelled(true);
+        }
     }
 }
