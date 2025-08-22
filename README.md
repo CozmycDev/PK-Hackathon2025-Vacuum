@@ -9,8 +9,8 @@
 - ProjectKorra 1.12.0+
 
 ### Roadmap
-- improved crop harvesting logic 
+- ~~improved crop harvesting logic~~
 - configurable entity pickup whitelist or blacklist 
 - configurable pickup range for entities  
 - configurable sounds and particles
-- collision support (other abilities remove wind charges)
+- ~~collision support (other abilities remove wind charges)~~
