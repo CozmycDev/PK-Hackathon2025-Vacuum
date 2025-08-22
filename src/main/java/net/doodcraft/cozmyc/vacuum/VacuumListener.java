@@ -72,10 +72,17 @@ public class VacuumListener implements Listener {
 
     @EventHandler
     public void onWindChargeCollide(ProjectileHitEvent event) {
-        if (!(event.getEntity() instanceof WindCharge windCharge)) return;
+        if (!(event.getEntity() instanceof WindCharge windCharge)) {
+            return;
+        }
 
-        if (Vacuum.ownsWindCharge(windCharge)) {
-            event.setCancelled(true);
+        for (CoreAbility ability : CoreAbility.getAbilitiesByInstances()) {
+            if (!(ability instanceof Vacuum vacuum)) {
+                continue;
+            }
+            if (vacuum.getWindChargeAbilities().contains(windCharge)) {
+                event.setCancelled(true);
+            }
         }
     }
 }
