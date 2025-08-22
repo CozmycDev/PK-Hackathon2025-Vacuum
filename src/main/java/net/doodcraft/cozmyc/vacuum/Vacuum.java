@@ -48,6 +48,7 @@ public class Vacuum extends AirAbility implements AddonAbility {
         }
 
         setFields();
+        updateTargetLocation();
         spawnWindChargeAbility();
         start();
     }
@@ -274,7 +275,7 @@ public class Vacuum extends AirAbility implements AddonAbility {
 
     @Override
     public String getVersion() {
-        return "1.1.0";
+        return "1.1.1";
     }
 
     @Override
